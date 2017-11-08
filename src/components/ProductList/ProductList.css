@@ -1,0 +1,10 @@
+#ProductList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 130px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
