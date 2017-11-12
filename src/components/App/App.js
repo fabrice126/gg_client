@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import Menu from '../Menu/Menu';
 import './App.css'
 //Used for React-Route
@@ -10,7 +9,7 @@ import Profil from '../../views/Profil/Profil';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -23,11 +22,8 @@ class App extends Component {
               <Route exact path='/profil' component={Profil} />
             </Switch>
           </main>
-          <Footer />
         </div>
       </BrowserRouter>
     );
   }
 }
-
-export default App;

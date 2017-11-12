@@ -1,49 +1,39 @@
 #Home {
-    flex: 1;
-}
-
-#Home #section_post {
     background: #eee;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: 10px;
+    flex-direction: row;
 }
 
-#Home #section_post input,
-#Home #section_post textarea,
-#Home #section_post span,
-#Home #section_post button {
-    padding: 10px;
-    flex: 1
+#Home #content {
+    display: flex;
+    flex-direction: row;
 }
 
-#Home #section_post span {
-    font-weight: bold;
-}
-
-#Home #section_post textarea {
-    resize: vertical;
-}
-
-#Home #section_post button {
+#Home Button {
+    transition: all .2s cubic-bezier(.4, 0, .2, 1);
     background: crimson;
     color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 3%;
+    width: 60px;
+    height: 60px;
+}
+
+#Home #bt_addProduct:hover {
+    box-shadow: -3px 7px 6px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
 }
 
 #Home #bt_addProduct {
     background: crimson;
     color: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    border-radius: 100%;
-    position: fixed;
-    bottom: 70px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
+    bottom: 10px;
 }
 
-#Home #section_post {
-    display: none;
+#Home #bt_showMap {
+    background: rgb(255, 255, 255);
+    color: crimson;
+    bottom: 80px;
 }

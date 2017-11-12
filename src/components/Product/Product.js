@@ -1,29 +1,31 @@
-
-
 import React, { Component } from 'react';
+import RoomIcon from 'material-ui-icons/Room';
+import AlarmIcon from 'material-ui-icons/Alarm';
+// import PropTypes from 'prop-types';
+
+// import ButtonBase from 'material-ui/ButtonBase';
+
 //Local
 import './Product.css'
 //Components
-class Product extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            product: props.product
-        };
-    }
+export default class Product extends Component {
+
     render() {
-        var product = this.state.product;
+        var { product, onClick } = this.props;
         return (
-            <div className='Product'>
+            // <ButtonBase focusRipple>
+            <div className='Product' onClick={onClick}>
                 <img src={product.images[0] ? "./uploads" + product.images[0].src : "./uploads/no_image.jpg"} alt="Produit" />
                 <span className='product_title'>{product.title}</span>
                 <div className='products_infos'>
-                    <span><i className='fa fa-map-marker'></i>1.2km</span>
-                    <span><i className='fa fa-clock-o'></i>3h</span>
+                    <span><RoomIcon />1.2km</span>
+                    <span><AlarmIcon />3h</span>
                 </div>
             </div>
+            // </ButtonBase>
         )
     }
 }
-
-export default Product;
+// Product.propTypes = {
+//     product: PropTypes.object.isRequired
+// }

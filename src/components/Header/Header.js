@@ -1,18 +1,42 @@
 import React, { Component } from 'react';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
+import SearchIcon from 'material-ui-icons/Search';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+import Avatar from 'material-ui/Avatar';
+
 import './Header.css';
 
-class Header extends Component {
+export default class Header extends Component {
     render() {
         return (
             <header id="Header">
+                <IconButton aria-label="Menu" onClick={this.activeButton}>
+                    <MenuIcon />
+                </IconButton>
                 <div className="div_logo">
-                    <div>G</div>
-                    <div className="second">G</div>
+                    <span>G</span>
+                    <span>G</span>
                 </div>
-                <button id="bt_search" className="fa fa-search"></button>
+                <div id="div_search">
+                    <IconButton aria-label="Search">
+                        <SearchIcon />
+                    </IconButton>
+                    <input type="search" placeholder="Rechercher" />
+                    <IconButton aria-label="Search">
+                        <ExpandMoreIcon />
+                    </IconButton>
+                </div>
+                <IconButton>
+                    <Avatar alt="Adelle Charles" src="/uploads/profile-img.jpg" />
+                </IconButton>
             </header>
         )
     }
-}
 
-export default Header;
+    activeButton(e) {
+        console.log(e);
+        e.preventDefault();
+        console.log('The link was clicked.');
+    }
+}

@@ -2,42 +2,62 @@ import React, { Component } from 'react';
 //Local
 import './Home.css'
 //Components
-import Filter from '../../components/Filter/Filter';
 import ProductList from '../../components/ProductList/ProductList';
-import GoogleMap from '../../components/GoogleMap/GoogleMap';
+import MyGoogleMap from '../../components/MyGoogleMap/MyGoogleMap';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
+import RoomIcon from 'material-ui-icons/Room';
 
-class Home extends Component {
+export default class Home extends Component {
     constructor() {
         super();
-        console.log("DANS LE CONSTRUCTOR");
         this.state = {
-            test: ""
+            products: null,
+            lastProductDeleted: null,
+            errorRequest: null
         };
     }
 
     render() {
+        var { products, errorRequest, lastProductDeleted } = this.state;
         return (
             <div id="Home">
-                <Filter />
-                <GoogleMap />
-                {/* <div id="section_post">
-                    <span className="sp_title">Votre offre</span>
-                    <input type="text" placeholder="Titre" />
-                    <textarea placeholder="Description"></textarea>
-                    <input type="file" />
-                    <button>PUBLIER</button>
-                </div> */}
-                <div id="section_products"></div>
-                <ProductList />
-
-                <div id="section_messages"></div>
-                <button id="bt_addProduct" className="fa fa-pencil"></button>
+                <div id="content">
+                    <ProductList deleteProduct={this.onDeleteProduct} products={products} errorRequest={errorRequest} />
+                    <MyGoogleMap products={products} lastProductDeleted={lastProductDeleted} errorRequest={errorRequest} />
+                </div>
+                <Button id="bt_showMap" fab color="primary" aria-label="add" >
+                    <RoomIcon />
+                </Button>
+                <Button id="bt_addProduct" fab color="primary" aria-label="add" >
+                    <AddIcon />
+                </Button>
             </div>
         )
     }
+
+    onDeleteProduct = (index) => {
+        var products = this.state.products.slice(); //copy array
+        products.splice(index, 1); //remove element
+        this.setState({
+            products: products,
+            lastProductDeleted: index
+        });
+    }
+
+    componentDidMount() {
+        let query = `{
+            products(limit:20,offset:0){
+                id, title, latitude, longitude, images{id, src}
+            }
+          }`;
+        fetch((`http://127.0.0.1:3000/graphql?query=${encodeURIComponent(query)}`), { method: 'post' }).then((response) => {
+            return response.json();
+        }).then(({ data: { products } }) => {
+            this.setState({ products: products })
+        }).catch((err) => {
+            console.log(`err fetch componentDidMount Home.js => ${err}`)
+        });
+    }
+
 }
-
-export default Home;
-
-
-

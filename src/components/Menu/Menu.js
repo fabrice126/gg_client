@@ -3,7 +3,7 @@ import './Menu.css';
 
 
 
-class Menu extends Component {
+export default class Menu extends Component {
     render() {
         return (
             <aside id="Menu" data-open="false">
@@ -17,5 +17,3 @@ class Menu extends Component {
         )
     }
 }
-
-export default Menu;

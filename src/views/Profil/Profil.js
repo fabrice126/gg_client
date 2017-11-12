@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Profil.css'
 
-class Profil extends Component {
+export default class Profil extends Component {
     render() {
         return (
             <div id="Profil">
@@ -10,8 +10,3 @@ class Profil extends Component {
         )
     }
 }
-
-export default Profil;
-
-
-

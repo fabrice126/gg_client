@@ -1,0 +1,12 @@
+#MyGoogleMap {
+    width: 800px;
+    background-color: red;
+    height: 100%;
+    flex: 1;
+}
+
+#MyGoogleMap #map {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
