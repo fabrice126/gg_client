@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
-import { Marker, InfoWindow } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
+
 import "./MyGoogleMap.css";
 
 
@@ -15,20 +15,18 @@ class MyGoogleMap extends Component {
     }
 
     render() {
-        var { products, errorRequest } = this.props;
+        var { products } = this.props;
         var { selectedPlace } = this.state;
-        console.log(products)
         return (
-            <GoogleMap defaultZoom={2} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-                {!errorRequest && products.map((product, index) => {
+            <GoogleMap defaultZoom={6} defaultCenter={{ lat: 44.76, lng: 3.66 }} >
+                {products.map((product, index) => {
                     return (
                         <Marker onClick={(e) => this.onToggleOpen(index)} index={index} key={product.id} position={{ lat: product.latitude, lng: product.longitude }} >
-                            {
-                                selectedPlace === index &&
+                            {selectedPlace === index &&
                                 <InfoWindow key={product.id} onCloseClick={(e) => this.onToggleOpen(index)}>
-                                    <div>
+                                    <div className="infoWindow">
                                         <img src={product.images[0] ? "./uploads" + product.images[0].src : "./uploads/no_image.jpg"} alt="Produit" />
-                                        <span>{product.title}</span>
+                                        <span className="title">{product.title}</span>
                                     </div>
                                 </InfoWindow>
                             }

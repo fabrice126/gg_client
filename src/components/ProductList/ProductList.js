@@ -6,12 +6,10 @@ import Product from '../../components/Product/Product';
 
 export default class ProductList extends Component {
     render() {
-        var { products, errorRequest, deleteProduct } = this.props;
-        if (!products) return <div>Chargement des produits</div>
-        if (errorRequest) return <div>Erreur de récupération des produits</div>
+        var { products } = this.props;
         return (
             <section id="ProductList">
-                {products.map((product, index) => <Product onClick={(e) => deleteProduct(index)} product={product} key={product.id} index={index} />)}
+                {products.map((product, index) => <Product product={product} key={product.id} index={index} />)}
             </section>
         )
     }

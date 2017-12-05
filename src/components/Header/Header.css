@@ -1,23 +1,18 @@
 #Header {
-    background: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+    display: grid;
+    position: sticky;
     top: 0px;
-    left: 0px;
-    right: 0px;
-    padding: 10px;
-    z-index: 3;
+    grid-template-columns: repeat(30, 1fr);
+    align-items: center;
+    padding: 14px;
+    color: #484848;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, rgb(247, 247, 247) 0%, rgb(255, 255, 255) 99%, rgb(255, 255, 255) 100%);
 }
 
 #Header .div_logo {
+    grid-column: 1/1;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
 }
 
 #Header .div_logo span {
@@ -32,27 +27,41 @@
     transform: rotateY(180deg);
 }
 
-#Header IconButton {
+#Header #div_search {
+    border: 1px solid #DBDBDB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    grid-column: 3/12;
+    min-width: 180px;
+    grid-template-columns: repeat(20, 1fr);
+    display: grid;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#Header .search_icon {
     background: transparent;
-    color: rgb(54, 54, 54);
     position: relative;
 }
 
-#Header #div_search {
-    background: rgba(0, 0, 0, 0.1);
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 4px;
-    padding: 3px;
-    margin: 0px 10%;
+#Header .avatar_icon {
+    grid-column: 30/31;
 }
 
 #Header #div_search input[type=search] {
     font-size: 18px;
-    flex: 1;
     background: transparent;
     color: rgb(54, 54, 54);
-    padding: 8px;
+    padding: 12px;
+    display: grid;
+    grid-column: 3/21;
+}
+
+#Header #div_search input[type=search]:focus {
+    outline: 0;
+}
+
+#Header .navLink {
+    text-decoration: none;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import RoomIcon from 'material-ui-icons/Room';
 import AlarmIcon from 'material-ui-icons/Alarm';
 // import PropTypes from 'prop-types';
-
 // import ButtonBase from 'material-ui/ButtonBase';
 
 //Local
@@ -14,14 +13,22 @@ export default class Product extends Component {
         var { product, onClick } = this.props;
         return (
             // <ButtonBase focusRipple>
-            <div className='Product' onClick={onClick}>
-                <img src={product.images[0] ? "./uploads" + product.images[0].src : "./uploads/no_image.jpg"} alt="Produit" />
-                <span className='product_title'>{product.title}</span>
+            <article className='Product' onClick={onClick}>
+                <img src={product.images[0] ? "/uploads" + product.images[0].src : "/uploads/no_image.jpg"} alt="Produit" />
                 <div className='products_infos'>
-                    <span><RoomIcon />1.2km</span>
-                    <span><AlarmIcon />3h</span>
+                    <div className='product_title'>
+                        {product.title}
+                    </div>
+                    <div className="products_infos_more">
+                        <span>
+                            <RoomIcon className="map_icon" />1.2km
+                        </span>
+                        <span>
+                            <AlarmIcon className="alarm_icon" />3h
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </article>
             // </ButtonBase>
         )
     }
