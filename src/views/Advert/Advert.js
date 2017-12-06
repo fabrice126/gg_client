@@ -47,12 +47,13 @@ export default class Advert extends Component {
 
 
     getProducts = () => {
+        let REACT_APP_API_HOST = process.env.REACT_APP_API_HOST;
         let query = `{
             products(limit:${this.limit},offset:${this.state.offset}){
                 id, title, latitude, longitude, images{id, src}
             }
           }`;
-        fetch((`http://127.0.0.1:3000/graphql?query=${encodeURIComponent(query)}`), { method: 'post' }).then((response) => {
+        fetch((`${REACT_APP_API_HOST}/graphql?query=${encodeURIComponent(query)}`), { method: 'post' }).then((response) => {
             return response.json();
         }).then(({ data, errors }) => {
             if (errors) throw errors[0].message;
