@@ -24,8 +24,10 @@ export default class Header extends Component {
                     </div>
                 </Link>
                 <div id="div_search">
+                    <div className="search_icon_wrapper">
                         <SearchIcon className="search_icon" />
-                        <input type="search" placeholder="Rechercher" />
+                    </div>
+                    <input type="search" placeholder="Rechercher" />
                 </div>
                 <IconButton className="avatar_icon">
                     <Avatar onClick={this.onToggleMenuConnect} alt="Adelle Charles" src="/uploads/profile-img.jpg" />

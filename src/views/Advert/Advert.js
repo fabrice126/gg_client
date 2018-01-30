@@ -52,6 +52,8 @@ export default class Advert extends Component {
                 id, title, latitude, longitude, images{id, src}
             }
           }`;
+        //REACT_APP_API_HOST_MOBILE or REACT_APP_API_HOST
+        console.log(process.env.REACT_APP_API_HOST);
         fetch((`${process.env.REACT_APP_API_HOST}/graphql?query=${encodeURIComponent(query)}`), { method: 'post' }).then((response) => {
             return response.json();
         }).then(({ data, errors }) => {

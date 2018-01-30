@@ -1,0 +1,12 @@
+#Home {
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+#Home div {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
